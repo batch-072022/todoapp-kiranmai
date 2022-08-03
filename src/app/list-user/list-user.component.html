@@ -1,10 +1,6 @@
-<p>listtask works!</p>
+<h1>List Users</h1>
 
-<div>
-
-    <h2>List Tasks</h2>
-
-<table border="3">
+<table class="table table-bordered" *ngIf="users">
 
 
 
@@ -12,31 +8,31 @@
 
 
 
-        <th>S.NO</th>
+        <tr>
 
 
 
-        <th>NAME OF THE TASK</th>
+            <th>Sno</th>
 
 
 
-        <th>STATUS</th>
+            <th>Id</th>
 
 
 
-        <th>Created Date</th>
+            <th>Name</th>
 
 
 
-        <th>ACTIONS</th>
+            <th>Email</th>
 
 
 
-       
+            <th>Action</th>
 
 
 
-       
+        </tr>
 
 
 
@@ -44,129 +40,49 @@
 
 
 
-<tbody>
+    <tbody>
 
 
 
-    <tr>
+        <tr *ngFor="let u of users;let i=index">
 
 
 
-        <td>1</td>
+            <td>{{i+1}}</td>
 
 
 
-        <td>Install Angular</td>
+            <td>{{u.id}}</td>
+            <td>{{u.name}}</td>
 
+            <td>{{u.email}}</td>
 
+            <td>
 
-        <td>Completed</td>
+                <a routerLink="/viewuser" class="bth bth-primary">View</a> &nbsp;&nbsp;  
 
+            <a routerLink="/edituser" class="bth bth-info">Edit</a> &nbsp;&nbsp;
 
+            <button type="button" class="btn btn-danger"
 
-        <td>01/08/2022</td>
+            (click)="deleteUser()">Delete</button>
 
-
-
-        <td>Edit</td>
-
-
-
-    </tr>
-
-    <tr>
-
-
-
-
-
-        <td>2</td>
-
-
-
-
-
-        <td>Intsall Node JS</td>
-
-
-
-
-
-        <td>PENDING</td>
-
-
-
-
-
-        <td>Edit</td>
-
-
+        </td>
 
 
 
     </tr>
-    <tr>
+</tbody>
+
+</table>
 
 
 
-        <td>3</td>
+<div *ngIf="!users">
+
+
+    no records
 
 
 
-        <td>Install VisualCode</td>
-
-
-
-        <td>Completed</td>
-
-
-
-        <td>01/08/2022</td>
-
-
-
-        <td>Edit</td>
-
-
-
-    </tr>
-
-    <tr>
-
-
-
-
-
-        <td>4</td>
-
-
-
-
-
-        <td>Install VPN</td>
-
-
-
-
-
-        <td>PENDING</td>
-
-
-
-
-
-        <td>Edit</td>
-
-
-
-
-
-    </tr>
-
-   
-
-     </table>
-
-
-
-    </div>
+</div>
